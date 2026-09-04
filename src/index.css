@@ -397,9 +397,9 @@ button:focus-visible {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 60px;
-  align-items: center;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 52px;
+  align-items: flex-start;
   position: relative;
   z-index: 1;
 }
@@ -523,297 +523,164 @@ button:focus-visible {
 .hero-visual {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
+  padding-top: 48px;
 }
 
-.hero-logo-showcase-container {
+/* ================================================================
+   LETRA "M" OFICIAL ANIMADA (FUNDO 100% TRANSPARENTE / PRETO DO SITE)
+   ================================================================ */
+.hero-logo-pure-container {
   position: relative;
   width: 100%;
-  max-width: 440px;
+  max-width: 480px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: transparent;
+  padding: 0;
 }
 
-/* Halos de luz de fundo */
-.logo-ambient-halo {
+/* Halo sutil de iluminação difusa atrás do M */
+.pure-m-ambient-glow {
   position: absolute;
-  width: 360px;
-  height: 360px;
-  background: radial-gradient(circle, rgba(244, 239, 228, 0.05) 0%, transparent 70%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(228, 54, 42, 0.18) 0%, rgba(228, 54, 42, 0.03) 45%, transparent 70%);
   border-radius: 50%;
-  filter: blur(40px);
+  filter: blur(55px);
   pointer-events: none;
-  animation: haloPulse 6s ease-in-out infinite;
+  animation: pureHaloPulse 5s ease-in-out infinite;
 }
 
-.logo-ambient-red-glow {
-  position: absolute;
-  top: 30%;
-  left: 35%;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(228, 54, 42, 0.18) 0%, rgba(228, 54, 42, 0.04) 50%, transparent 70%);
-  border-radius: 50%;
-  filter: blur(40px);
-  pointer-events: none;
-  animation: redGlowPulse 3.5s ease-in-out infinite;
-}
-
-@keyframes haloPulse {
+@keyframes pureHaloPulse {
   0%, 100% {
-    transform: scale(1);
+    transform: scale(0.95);
     opacity: 0.6;
   }
   50% {
-    transform: scale(1.15);
+    transform: scale(1.2);
     opacity: 1;
   }
 }
 
-@keyframes redGlowPulse {
-  0%, 100% {
-    transform: scale(0.95);
-    opacity: 0.7;
-  }
-  50% {
-    transform: scale(1.25);
-    opacity: 1;
-  }
-}
-
-/* Card 3D Interativo */
-.hero-logo-card {
+/* Wrapper da Letra M com levitação orgânica contínua */
+.pure-m-wrapper {
   position: relative;
   width: 100%;
-  max-width: 400px;
-  aspect-ratio: 1 / 1;
-  background: linear-gradient(145deg, rgba(20, 17, 16, 0.95) 0%, rgba(12, 11, 10, 0.98) 100%);
-  border: 1px solid rgba(244, 239, 228, 0.12);
-  border-radius: 36px;
-  padding: 24px 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 40px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  transition: box-shadow 0.4s ease, border-color 0.4s ease, transform 0.15s ease-out;
-  animation: cardLevitate 6s ease-in-out infinite;
-  transform-style: preserve-3d;
-}
-
-.hero-logo-card.hovered {
-  animation-play-state: paused;
-  border-color: rgba(244, 239, 228, 0.28);
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.85), 0 0 40px rgba(228, 54, 42, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-@keyframes cardLevitate {
-  0%, 100% {
-    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px);
-  }
-  50% {
-    transform: perspective(1000px) rotateX(1deg) rotateY(-1.5deg) translateY(-10px);
-  }
-}
-
-/* Spotlight dinâmico */
-.logo-card-spotlight {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Feixe de luz / Sheen */
-.logo-sheen-beam {
-  position: absolute;
-  top: -50%;
-  left: -80%;
-  width: 40%;
-  height: 200%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04), transparent);
-  transform: rotate(35deg);
-  pointer-events: none;
-  z-index: 3;
-  animation: sheenPass 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-@keyframes sheenPass {
-  0%, 25% {
-    left: -80%;
-    opacity: 0;
-  }
-  35% {
-    opacity: 1;
-  }
-  50%, 100% {
-    left: 140%;
-    opacity: 0;
-  }
-}
-
-/* HUD Top & Bottom Bars */
-.logo-card-hud {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  letter-spacing: 0.14em;
-  color: var(--text-muted);
-  z-index: 2;
-  user-select: none;
-}
-
-.top-hud {
-  padding-bottom: 8px;
-}
-
-.bottom-hud {
-  padding-top: 8px;
-}
-
-.hud-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #3ecf8e;
-  font-weight: 600;
-}
-
-.hud-status-dot {
-  width: 6px;
-  height: 6px;
-  background: #3ecf8e;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #3ecf8e;
-  animation: statusBlink 2s ease-in-out infinite;
-}
-
-@keyframes statusBlink {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.8); }
-}
-
-/* Crosshairs nos cantos */
-.crosshair {
-  position: absolute;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: rgba(244, 239, 228, 0.25);
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-}
-.crosshair.top-left { top: 12px; left: 14px; }
-.crosshair.top-right { top: 12px; right: 14px; }
-.crosshair.bottom-left { bottom: 12px; left: 14px; }
-.crosshair.bottom-right { bottom: 12px; right: 14px; }
-
-/* SVG Wrapper */
-.logo-svg-wrapper {
-  position: relative;
-  width: 78%;
-  max-width: 270px;
-  aspect-ratio: 1 / 1;
+  max-width: 440px;
+  aspect-ratio: 260 / 270;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
-  margin: auto;
+  background: transparent;
+  transition: transform 0.2s ease-out;
+  animation: pureMLevitate 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+  cursor: pointer;
 }
 
-.malsyn-animated-logo {
+.pure-m-wrapper.hovered {
+  animation-play-state: paused;
+}
+
+@keyframes pureMLevitate {
+  0%, 100% {
+    transform: perspective(800px) translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: perspective(800px) translateY(-14px) rotate(0.8deg);
+  }
+}
+
+.pure-m-svg {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.6));
+  overflow: visible;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.85));
 }
 
-.logo-base-rect {
-  transition: stroke var(--transition-fast);
-}
-
-.hero-logo-card:hover .logo-base-rect {
-  stroke: #3d3632;
-}
-
-/* Animações dos traçados do "M" */
-.m-stroke-left,
-.m-stroke-right {
+/* Animação de respiração luminosa nos traçados off-white */
+.pure-m-stroke-left,
+.pure-m-stroke-right {
   stroke-dasharray: 450;
-  animation: strokeFlow 8s ease-in-out infinite;
+  animation: pureStrokeFlow 8s ease-in-out infinite;
 }
 
-@keyframes strokeFlow {
+@keyframes pureStrokeFlow {
   0%, 100% {
     stroke-dashoffset: 0;
     opacity: 0.95;
   }
   50% {
-    stroke-dashoffset: 20;
+    stroke-dashoffset: 16;
     opacity: 1;
   }
 }
 
-/* Pulso Neon do acento vermelho */
-.m-accent-pill {
-  animation: accentNeonPulse 2.8s ease-in-out infinite;
+/* Pulso Neon Intenso no Acento Vermelho Malsyn */
+.pure-m-accent-pill {
+  transform-origin: 160px 172px;
+  animation: pureAccentNeon 2.6s ease-in-out infinite;
 }
 
-@keyframes accentNeonPulse {
+@keyframes pureAccentNeon {
   0%, 100% {
     stroke: #E4362A;
-    filter: drop-shadow(0 0 6px #e4362a) drop-shadow(0 0 16px rgba(228, 54, 42, 0.5));
+    filter: drop-shadow(0 0 8px #e4362a) drop-shadow(0 0 20px rgba(228, 54, 42, 0.6));
     opacity: 0.95;
   }
   50% {
     stroke: #ff4738;
-    filter: drop-shadow(0 0 14px #ff4738) drop-shadow(0 0 30px rgba(228, 54, 42, 0.9));
+    filter: drop-shadow(0 0 16px #ff4738) drop-shadow(0 0 36px rgba(228, 54, 42, 0.95));
     opacity: 1;
   }
 }
 
-/* Ponto Vermelho e Anel Radar */
-.m-red-dot {
-  animation: redDotGlow 2.8s ease-in-out infinite;
+/* Ponto Vermelho Orbital com Pulso de Energia */
+.pure-m-red-dot {
+  transform-origin: 252px 145px;
+  animation: pureDotGlow 2.6s ease-in-out infinite;
 }
 
-@keyframes redDotGlow {
+@keyframes pureDotGlow {
   0%, 100% {
     fill: #E4362A;
-    filter: drop-shadow(0 0 6px #e4362a);
+    filter: drop-shadow(0 0 8px #e4362a);
     transform: scale(1);
   }
   50% {
     fill: #ff4738;
-    filter: drop-shadow(0 0 16px #ff4738) drop-shadow(0 0 24px rgba(228, 54, 42, 0.9));
-    transform: scale(1.06);
+    filter: drop-shadow(0 0 18px #ff4738) drop-shadow(0 0 30px rgba(228, 54, 42, 0.95));
+    transform: scale(1.08);
   }
 }
 
-.m-red-dot-ping-ring {
+/* Anéis de Radar / Beacon Ondulantes a partir do Ponto Vermelho */
+.pure-m-radar-ring {
   transform-origin: 252px 145px;
-  animation: radarPing 2.8s cubic-bezier(0.2, 0.8, 0.35, 1) infinite;
+  animation: pureRadar 2.6s cubic-bezier(0.2, 0.8, 0.35, 1) infinite;
 }
 
-@keyframes radarPing {
+.pure-m-radar-ring-2 {
+  transform-origin: 252px 145px;
+  animation: pureRadar 2.6s 1.3s cubic-bezier(0.2, 0.8, 0.35, 1) infinite;
+}
+
+@keyframes pureRadar {
   0% {
-    r: 14;
-    opacity: 0.9;
+    r: 13;
+    opacity: 0.95;
     stroke-width: 2.5;
   }
   50% {
-    r: 38;
+    r: 42;
     opacity: 0.25;
     stroke-width: 1.2;
   }
   100% {
-    r: 54;
+    r: 60;
     opacity: 0;
     stroke-width: 0.2;
   }
@@ -2401,13 +2268,15 @@ footer.site-footer {
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 48px;
+    align-items: center;
   }
 
   .hero-visual {
     order: 0;
+    padding-top: 0;
   }
 
-  .hero-logo-showcase-container {
+  .hero-logo-pure-container {
     max-width: 360px;
   }
 
@@ -2580,18 +2449,13 @@ footer.site-footer {
     width: 100%;
   }
 
-  .hero-logo-showcase-container {
-    max-width: 300px;
+  .hero-logo-pure-container {
+    max-width: 260px;
     margin-top: 16px;
   }
 
-  .hero-logo-card {
-    border-radius: 26px;
-    padding: 16px 14px;
-  }
-
-  .logo-svg-wrapper {
-    max-width: 200px;
+  .pure-m-wrapper {
+    max-width: 240px;
   }
 
   .principios-grid {

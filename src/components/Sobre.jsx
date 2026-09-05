@@ -30,7 +30,7 @@ export default function Sobre() {
             <span className="eyebrow">Sobre Nós · O Que Fazemos</span>
           </div>
           <h2 className="sobre-title">
-            Criamos sites profissionais com código próprio para colocar o seu negócio no ar.
+            Criamos sites profissionais para colocar o seu negócio no ar.
           </h2>
           <div className="sobre-text">
             <p>

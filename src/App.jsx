@@ -7,22 +7,75 @@ import Planos from './pages/Planos';
 import Projetos from './pages/Projetos';
 import './index.css';
 
-function ScrollToTop() {
+const ROUTE_SEO = {
+  '/': {
+    title: 'Malsyn | Sites e Soluções Digitais',
+    description: 'A Malsyn desenvolve sites e soluções digitais para empresas que querem fortalecer sua presença no digital.',
+    canonical: 'https://malsyn.com/',
+  },
+  '/planos': {
+    title: 'Planos & Valores | Malsyn',
+    description: 'Conheça nossos planos e estruturas pensadas para o momento do seu negócio: Essencial, Profissional e Sob Medida.',
+    canonical: 'https://malsyn.com/planos',
+  },
+  '/orcamento': {
+    title: 'Orçamento de Sites e Soluções Digitais | Malsyn',
+    description: 'Venha fazer o seu orçamento com a Malsyn. Valores e escopos alinhados diretamente para a sua necessidade.',
+    canonical: 'https://malsyn.com/orcamento',
+  },
+  '/projetos': {
+    title: 'Portfólio & Vitrine de Projetos | Malsyn',
+    description: 'Projetos construídos com excelência técnica e visual. Sem templates prontos, sem lentidão e com total foco nos seus objetivos.',
+    canonical: 'https://malsyn.com/projetos',
+  },
+};
+
+function RouteSEOManager() {
   const { pathname } = useLocation();
+
   useEffect(() => {
     try {
       window.scrollTo(0, 0);
     } catch {
       // fallback
     }
+
+    const seo = ROUTE_SEO[pathname] || ROUTE_SEO['/'];
+    if (seo) {
+      document.title = seo.title;
+
+      const descTag = document.querySelector('meta[name="description"]');
+      if (descTag) {
+        descTag.setAttribute('content', seo.description);
+      }
+
+      const canonicalTag = document.querySelector('link[rel="canonical"]');
+      if (canonicalTag) {
+        canonicalTag.setAttribute('href', seo.canonical);
+      }
+
+      const ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) {
+        ogUrl.setAttribute('content', seo.canonical);
+      }
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) {
+        ogTitle.setAttribute('content', seo.title);
+      }
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) {
+        ogDesc.setAttribute('content', seo.description);
+      }
+    }
   }, [pathname]);
+
   return null;
 }
 
 export default function App() {
   return (
     <div className="app-container">
-      <ScrollToTop />
+      <RouteSEOManager />
       <Navbar />
       <div className="main-content">
         <Routes>
@@ -37,3 +90,4 @@ export default function App() {
     </div>
   );
 }
+

@@ -6,7 +6,7 @@ const PROJETOS_DATA = [
     id: 'vertice',
     titulo: 'RYSE',
     categoria: 'Websites Institucionais',
-    segmento: 'Direito Empresarial & Tributário',
+    segmento: 'Fotografia & Edição',
     destaque: 'Site Institucional Exclusivo',
     descricao: 'Portal corporativo com design sóbrio e tipografia refinada. Estruturado para transmitir autoridade jurídica imediata, com apresentação de áreas de atuação e agendamento direto.',
     tags: ['React', 'SEO Técnico', 'Código Próprio', 'Ultra Rápido'],
@@ -16,15 +16,15 @@ const PROJETOS_DATA = [
   },
   {
     id: 'lumios',
-    titulo: 'Lumios Estética & Dermatologia',
+    titulo: 'HUIÓS',
     categoria: 'Landing Pages',
-    segmento: 'Saúde & Estética Avançada',
+    segmento: 'Inscrições',
     destaque: 'Landing Page de Alta Conversão',
-    descricao: 'Página de aterrissagem focada em campanhas de tráfego pago e captação de pacientes. Carregamento instantâneo no celular e botão inteligente para agendamento no WhatsApp.',
+    descricao: 'Plataforma digital desenvolvida para facilitar a gestão e organização de inscrições em retiros, proporcionando uma experiência simples, intuitiva e moderna para os participantes.',
     tags: ['Mobile-First', 'Conversão Ágil', 'API WhatsApp', 'Performance 100'],
     corAcento: '#f4efe4',
     mockupType: 'landing',
-    whatsappMsg: 'Olá, Malsyn! Vi a landing page estilo Lumios Estética e quero uma página de alta conversão para os meus serviços.'
+    whatsappMsg: 'Olá, Malsyn! Vi a landing page e quero uma página com inspiração na do HUIÓS.'
   },
   {
     id: 'nexus',
@@ -67,7 +67,7 @@ export default function Projetos() {
   };
 
   return (
-    <div className="projetos-page">
+    <main className="projetos-page">
       {/* Header / Hero da Vitrine */}
       <section className="projetos-hero">
         <div className="wrap">
@@ -252,7 +252,7 @@ export default function Projetos() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
 

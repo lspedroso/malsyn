@@ -26,30 +26,6 @@ const PROJETOS_DATA = [
     mockupType: 'landing',
     whatsappMsg: 'Olá, Malsyn! Vi a landing page e quero uma página com inspiração na do HUIÓS.'
   },
-  {
-    id: 'nexus',
-    titulo: 'Nexus Gestão Imobiliária',
-    categoria: 'Websites Institucionais',
-    segmento: 'Mercado Imobiliário Premium',
-    destaque: 'Plataforma com Vitrine Dinâmica',
-    descricao: 'Website institucional com catálogo limpo de imóveis e empreendimentos. Desenvolvido com código proprietário sem plugins pesados, garantindo navegação suave.',
-    tags: ['Catálogo Leve', 'SEO Local', 'Design Exclusivo', 'Filtros Ágeis'],
-    corAcento: '#f4efe4',
-    mockupType: 'catalog',
-    whatsappMsg: 'Olá, Malsyn! Tenho interesse em um site com catálogo semelhante ao projeto Nexus Imóveis.'
-  },
-  {
-    id: 'aura',
-    titulo: 'Aura Arquitetura & Design',
-    categoria: 'Websites Institucionais',
-    segmento: 'Arquitetura & Urbanismo',
-    destaque: 'Portfólio Editorial & Visual',
-    descricao: 'Plataforma minimalista orientada à imagem e fotografia arquitetônica. Cada espaço do layout foi pensado para valorizar o portfólio de projetos residenciais e corporativos.',
-    tags: ['Design Editorial', 'Otimização WebP', 'Microinterações', 'Minimalista'],
-    corAcento: '#f4efe4',
-    mockupType: 'editorial',
-    whatsappMsg: 'Olá, Malsyn! Gostaria de um site com portfólio visual refinado como o projeto Aura Arquitetura.'
-  },
 ];
 
 const CATEGORIAS = ['Todos', 'Websites Institucionais', 'Landing Pages', 'Sistemas & Soluções'];
@@ -63,7 +39,7 @@ export default function Projetos() {
 
   const handleWhatsapp = (msg) => {
     const text = encodeURIComponent(msg);
-    window.open(`https://wa.me/5531999990000?text=${text}`, '_blank');
+    window.open(`https://wa.me/5533988947342?text=${text}`, '_blank');
   };
 
   return (
@@ -228,7 +204,7 @@ export default function Projetos() {
 
             <div className="whatsapp-card-action">
               <a
-                href="https://wa.me/5531999990000?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20um%20projeto%20com%20a%20Malsyn."
+                href="https://wa.me/5533988947342?text=Ol%C3%A1%2C%20Malsyn!%20Gostaria%20de%20conversar%20sobre%20um%20projeto."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp-cta"

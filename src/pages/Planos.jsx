@@ -130,7 +130,7 @@ export default function Planos() {
                   ))}
                 </ul>
                 <a
-                  href={`https://wa.me/5531999990000?text=${p.msg}`}
+                  href={`https://wa.me/5533988947342?text=${p.msg}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`plan-cta ${isSelected ? 'plan-cta-featured' : ''}`}
@@ -186,7 +186,7 @@ export default function Planos() {
 
             <div className="whatsapp-card-action">
               <a
-                href="https://wa.me/5531999990000?text=Ol%C3%A1%2C%20Malsyn!%20Gostaria%20de%20ajuda%20para%20escolher%20o%20melhor%20plano."
+                href="https://wa.me/5533988947342?text=Ol%C3%A1%2C%20Malsyn!%20Gostaria%20de%20ajuda%20para%20escolher%20o%20melhor%20plano."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp-cta"

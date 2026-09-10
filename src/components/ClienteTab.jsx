@@ -13,7 +13,7 @@ export default function ClienteTab() {
               Precisa de um ajuste, uma atualização ou tirar dúvidas? Fale diretamente com quem construiu o seu projeto.
             </p>
             <a
-              href="https://wa.me/5531999990000?text=Ol%C3%A1%2C%20Malsyn!%20J%C3%A1%20sou%20cliente%20e%20gostaria%20de%20um%20suporte."
+              href="https://wa.me/5533988947342?text=Ol%C3%A1%2C%20Malsyn!%20J%C3%A1%20sou%20cliente%20e%20gostaria%20de%20um%20suporte."
               target="_blank"
               rel="noopener noreferrer"
               className="btn-panel"

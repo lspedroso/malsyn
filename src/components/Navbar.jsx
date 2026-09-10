@@ -5,16 +5,15 @@ export default function Navbar() {
   const location = useLocation();
   const [open, setOpen] = useState(false);
   const isHome = location.pathname === '/';
-  const isSubPage = location.pathname === '/planos' || location.pathname === '/orcamento' || location.pathname === '/projetos';
+  const isPlanos = location.pathname === '/planos' || location.pathname === '/orcamento';
+  const isSubPage = location.pathname === '/projetos';
 
   const handleContatoClick = (e) => {
     setOpen(false);
-    if (isHome) {
+    const el = document.getElementById('contato');
+    if (el) {
       e.preventDefault();
-      const el = document.getElementById('contato');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
+      el.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -22,7 +21,14 @@ export default function Navbar() {
     setOpen(false);
     if (isHome) {
       e.preventDefault();
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handlePlanosClick = () => {
+    setOpen(false);
+    if (isPlanos) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -63,7 +69,7 @@ export default function Navbar() {
             Home
           </Link>
           <a
-            href={isHome ? '#contato' : '/#contato'}
+            href="#contato"
             className="nav-link"
             onClick={handleContatoClick}
           >
@@ -71,8 +77,8 @@ export default function Navbar() {
           </a>
           <Link
             to="/planos"
-            className={location.pathname === '/planos' ? 'nav-link active' : 'nav-link'}
-            onClick={() => setOpen(false)}
+            className={isPlanos ? 'nav-link active' : 'nav-link'}
+            onClick={handlePlanosClick}
           >
             Planos
           </Link>

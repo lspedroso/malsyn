@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Planos from './pages/Planos';
 import Projetos from './pages/Projetos';
+import Briefing from './pages/Briefing';
 import './index.css';
 
 const ROUTE_SEO = {
@@ -27,6 +28,11 @@ const ROUTE_SEO = {
     title: 'Portfólio & Vitrine de Projetos | Malsyn',
     description: 'Projetos construídos com excelência técnica e visual. Sem templates prontos, sem lentidão e com total foco nos seus objetivos.',
     canonical: 'https://malsyn.com/projetos',
+  },
+  '/briefing': {
+    title: 'Briefing do Projeto | Malsyn',
+    description: 'Preencha os detalhes da sua empresa e do site desejado para iniciar seu projeto com a Malsyn.',
+    canonical: 'https://malsyn.com/briefing',
   },
 };
 
@@ -83,6 +89,7 @@ export default function App() {
           <Route path="/planos" element={<Planos />} />
           <Route path="/orcamento" element={<Planos />} />
           <Route path="/projetos" element={<Projetos />} />
+          <Route path="/briefing" element={<Briefing />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </div>

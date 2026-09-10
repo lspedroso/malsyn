@@ -129,15 +129,12 @@ export default function Planos() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={`https://wa.me/5533988947342?text=${p.msg}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to={`/briefing?plano=${encodeURIComponent(p.nome)}`}
                   className={`plan-cta ${isSelected ? 'plan-cta-featured' : ''}`}
-                  onClick={() => setSelectedPlan(p.nome)}
                 >
                   Quero esse plano →
-                </a>
+                </Link>
               </div>
             );
           })}

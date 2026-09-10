@@ -37,11 +37,6 @@ export default function Projetos() {
     ? PROJETOS_DATA
     : PROJETOS_DATA.filter((p) => p.categoria === categoriaAtiva);
 
-  const handleWhatsapp = (msg) => {
-    const text = encodeURIComponent(msg);
-    window.open(`https://wa.me/5533988947342?text=${text}`, '_blank');
-  };
-
   return (
     <main className="projetos-page">
       {/* Header / Hero da Vitrine */}
@@ -143,17 +138,6 @@ export default function Projetos() {
                         {tag}
                       </span>
                     ))}
-                  </div>
-
-                  <div className="projeto-footer-action">
-                    <button
-                      type="button"
-                      className="btn-projeto-cta"
-                      onClick={() => handleWhatsapp(projeto.whatsappMsg)}
-                    >
-                      Quero um projeto assim
-                      <span className="arrow-sym">→</span>
-                    </button>
                   </div>
                 </div>
               </article>
